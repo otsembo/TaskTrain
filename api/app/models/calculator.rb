@@ -26,7 +26,7 @@ class Calculator
     end
 
     def cube
-        @n1 * @n1
+        @n1 * @n1 * @n1
     end
 
 end

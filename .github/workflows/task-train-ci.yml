@@ -1,0 +1,22 @@
+name: TaskTrainCI
+
+# conditions that trigger this action
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# functions that will run within the workflow
+jobs:
+  rspec:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7.4'
+      - run: bundle install
+      - run: bundle exec rails db:migrate RAILS_ENV=test
+      - run: bundle exec rspec spec

@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '2.7.4'
+          ruby-version: '3.0.2'
       - run: cd api && bundle install
       - run: cd api && bundle exec rails db:migrate RAILS_ENV=test
       - run: cd api && bundle exec rspec spec

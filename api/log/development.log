@@ -587,3 +587,130 @@ Filter chain halted as :session_expired? rendered or redirected
 Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 341)
 
 
+Started POST "/users/login" for 127.0.0.1 at 2023-03-27 11:22:59 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"otsembo", "password"=>"[FILTERED]", "user"=>{"username"=>"otsembo"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f2d789b2f10>, params: {"username"=>"otsembo", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"otsembo"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f2d789b2f10>, params: {"username"=>"otsembo", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"otsembo"}} }[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'otsembo' OR email = NULL) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f2d789b2f10>, params: {"username"=>"otsembo", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"otsembo"}} }[0m
+Completed 422 Unprocessable Entity in 206ms (Views: 0.4ms | ActiveRecord: 0.9ms | Allocations: 38552)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-03-27 11:24:19 +0300
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"otsembo", "password"=>"[FILTERED]", "user"=>{"username"=>"otsembo"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x000055c1c969eed0>, params: {"username"=>"otsembo", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"otsembo"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x000055c1c969eed0>, params: {"username"=>"otsembo", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"otsembo"}} }[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'otsembo' OR email = NULL) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x000055c1c969eed0>, params: {"username"=>"otsembo", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"otsembo"}} }[0m
+Completed 422 Unprocessable Entity in 186ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 3492)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-03-27 11:24:32 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"otsembo", "password"=>"[FILTERED]", "user"=>{"username"=>"otsembo"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f60fc921b70>, params: {"username"=>"otsembo", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"otsembo"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f60fc921b70>, params: {"username"=>"otsembo", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"otsembo"}} }[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'otsembo' OR email = NULL) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f60fc921b70>, params: {"username"=>"otsembo", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"otsembo"}} }[0m
+Completed 422 Unprocessable Entity in 206ms (Views: 0.3ms | ActiveRecord: 1.0ms | Allocations: 38544)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-03-27 11:35:38 +0300
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"otsembo", "password"=>"[FILTERED]", "user"=>{"username"=>"otsembo"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f60f0130dc8>, params: {"username"=>"otsembo", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"otsembo"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f60f0130dc8>, params: {"username"=>"otsembo", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"otsembo"}} }[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'otsembo' OR email = NULL) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f60f0130dc8>, params: {"username"=>"otsembo", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"otsembo"}} }[0m
+Completed 200 OK in 186ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 3587)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-03-27 11:36:11 +0300
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"otsembo", "password"=>"[FILTERED]", "user"=>{"username"=>"otsembo"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f6108016f10>, params: {"username"=>"otsembo", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"otsembo"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f6108016f10>, params: {"username"=>"otsembo", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"otsembo"}} }[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'otsembo' OR email = NULL) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f6108016f10>, params: {"username"=>"otsembo", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"otsembo"}} }[0m
+Completed 200 OK in 183ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 1415)
+
+
+Started GET "/verify" for 127.0.0.1 at 2023-03-27 11:38:55 +0300
+Processing by ApplicationController#verify_auth as */*
+Completed 500 Internal Server Error in 2ms (Views: 0.3ms | Allocations: 841)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/application_controller.rb:7:in `app_response'
+app/controllers/application_controller.rb:79:in `standard_error'
+Started GET "/verify" for 127.0.0.1 at 2023-03-27 11:39:58 +0300
+Processing by ApplicationController#verify_auth as */*
+Completed 422 Unprocessable Entity in 1ms (Views: 0.1ms | Allocations: 693)
+
+
+Started GET "/verify" for 127.0.0.1 at 2023-03-27 11:41:28 +0300
+Processing by ApplicationController#verify_auth as */*
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | Allocations: 118)
+
+
+Started GET "/verify" for 127.0.0.1 at 2023-03-27 11:42:22 +0300
+Processing by ApplicationController#verify_auth as */*
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | Allocations: 232)
+
+
+Started GET "/verify" for 127.0.0.1 at 2023-03-27 11:42:54 +0300
+Processing by ApplicationController#verify_auth as */*
+Completed 200 OK in 1ms (Views: 0.2ms | Allocations: 334)
+
+
+Started GET "/verify" for 127.0.0.1 at 2023-03-27 11:44:30 +0300
+Processing by ApplicationController#verify_auth as */*
+Completed 200 OK in 1ms (Views: 0.2ms | Allocations: 349)
+
+
+Started GET "/verify" for 127.0.0.1 at 2023-03-27 11:44:53 +0300
+Processing by ApplicationController#verify_auth as */*
+Completed 200 OK in 1ms (Views: 0.2ms | Allocations: 338)
+
+
+Started GET "/todos" for 127.0.0.1 at 2023-03-27 11:52:06 +0300
+Processing by TodosController#index as */*
+Filter chain halted as :verify_auth rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | Allocations: 245)
+
+
+Started GET "/todos" for 127.0.0.1 at 2023-03-27 11:52:37 +0300
+Processing by TodosController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:73:in `user'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/application_controller.rb:7:in `app_response'
+Completed 200 OK in 73ms (Views: 18.9ms | ActiveRecord: 1.9ms | Allocations: 33951)
+
+
+Started GET "/todos" for 127.0.0.1 at 2023-03-27 11:53:20 +0300
+Processing by TodosController#index as */*
+Filter chain halted as :verify_auth rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 139)
+
+
+Started GET "/todos" for 127.0.0.1 at 2023-03-27 11:53:31 +0300
+Processing by TodosController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:73:in `user'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/application_controller.rb:7:in `app_response'
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.2ms | Allocations: 1633)
+
+

@@ -12,7 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
-          { isUserLoggedIn() ? <Route path="/todos" element={<Todos/>}/> : null }
+          <Route path="/todos" element={<Todos/>}/>
         </Routes>
       </div>     
   )

@@ -1,6 +1,11 @@
-
+import { useNavigate } from "react-router-dom";
+import { isUserLoggedIn } from "../utils/auth";
 
 const Todos = (): JSX.Element => {
+
+    const navigate = useNavigate();
+    !isUserLoggedIn() && navigate('/');
+    
 
     const todos = [];
 

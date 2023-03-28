@@ -1,23 +1,30 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AuthLogo from '../assets/create_account.png';
 import network from '../utils/network';
+import { storeToken } from '../utils/auth';
 
 const Login = (): JSX.Element => {
 
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const [error, setError] = useState<string|null>(null);
+    const [loading, setLoading] = useState<boolean>(false);
+    const navigate = useNavigate();
 
     const loginUser = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setLoading(true)
         try {
             const body = { email, password };
-            const response = await network.login({ email: email, password: password })
-            const parseRes = await response.json();
-            console.log(parseRes);
+            const response = await network.login(body);
+            storeToken(response.data.data.token)
+            setError(null)
+            navigate('/todos')
         } catch (err: any) {
-            console.error(err.message);
+           setError(err.response.data);
         }
+        setLoading(false)
     }
     
     return(
@@ -43,7 +50,18 @@ const Login = (): JSX.Element => {
                             <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
                             <label className="form-check-label" htmlFor="exampleCheck1">Remember Me</label>
                         </div>
-                        <button type="submit" className="btn btn-success">LOGIN</button>
+
+                        { loading ? <div className="d-flex align-items-center">
+                                        <strong>Please Wait...</strong>
+                                        <div className="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+                                        </div> : 
+                                        <button type="submit" className="btn btn-success">LOGIN</button> 
+                         }
+
+                        
+
+                        { error && !loading && <div className="alert alert-danger mt-3">{error}</div> }
+
                         <div className="mt-3">
                             <Link to={'/register'}>Do not have an account? Create one.</Link>
                         </div>

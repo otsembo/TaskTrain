@@ -12,8 +12,7 @@ const removeUser = () => {
 }
 
 const isUserLoggedIn = (): boolean => {
-    //return !!getUser();
-    return true;
+    return !!getToken();
 }
 
 const storeToken = (token: string) => {

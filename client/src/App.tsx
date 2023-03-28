@@ -2,6 +2,8 @@ import { useState } from 'react'
 import Login from './pages/Login'
 import { Routes, Route } from 'react-router-dom'
 import Register from './pages/Register'
+import Todos from './pages/Todos'
+import { isUserLoggedIn } from './utils/auth'
 
 function App() {
 
@@ -10,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
+          { isUserLoggedIn() ? <Route path="/todos" element={<Todos/>}/> : null }
         </Routes>
       </div>     
   )

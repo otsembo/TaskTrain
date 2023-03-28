@@ -16,4 +16,12 @@ const isUserLoggedIn = (): boolean => {
     return true;
 }
 
-export { saveUser, getUser, removeUser, isUserLoggedIn };
+const storeToken = (token: string) => {
+    localStorage.setItem('token', token);
+}
+
+const getToken = (): string | null => {
+    return localStorage.getItem('token');
+}
+
+export { saveUser, getUser, removeUser, isUserLoggedIn, storeToken, getToken };

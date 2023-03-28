@@ -1,11 +1,14 @@
 import axios from 'axios';
+import { getToken } from './auth';
 
 const instance = axios.create({
-    baseURL: 'http://localhost:3000',
-    timeout: 5000,
+    baseURL: 'https://task-train-rails.onrender.com',
+    timeout: 60000,
     headers: { 
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
+        'Authorization': 'Bearer ' + getToken(),
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': false
      }
 });
 

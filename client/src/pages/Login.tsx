@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import AuthLogo from '../assets/create_account.png';
 import network from '../utils/network';
 import { storeToken } from '../utils/auth';
+import AppError from '../components/AppError';
 
 const Login = (): JSX.Element => {
 
@@ -58,14 +59,13 @@ const Login = (): JSX.Element => {
                                         <button type="submit" className="btn btn-success">LOGIN</button> 
                          }
 
-                        
-
-                        { error && !loading && <div className="alert alert-danger mt-3">{error}</div> }
 
                         <div className="mt-3">
                             <Link to={'/register'}>Do not have an account? Create one.</Link>
                         </div>
                     </form>
+
+                    <AppError loading={loading} error={error}/>
             </div>
             <div className="col-6 mx-auto d-flex justify-content-center">
                 <img src={AuthLogo} height={'500px'} style={{objectFit: 'contain'}}/>

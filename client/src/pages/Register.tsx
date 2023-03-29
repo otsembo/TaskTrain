@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import AuthLogo from '../assets/create_account.png';
 import network from '../utils/network';
-import { storeToken } from '../utils/auth';
+import AppError from '../components/AppError';
 
 const Register = (): JSX.Element => {
 
@@ -20,9 +20,8 @@ const Register = (): JSX.Element => {
         try {
             const body = { email, password, username };
             const response = await network.register(body);
-            storeToken(response.data.data.token)
             setError(null)
-            navigate('/todos')
+            navigate('/')
         } catch (err: any) {
             setError(JSON.stringify(err.response.data));
         }
@@ -71,6 +70,8 @@ const Register = (): JSX.Element => {
                         <Link to={'/'}>Already have an account? Log In instead.</Link>
                     </div>
                 </form>
+
+                <AppError loading={loading} error={error}/>
         </div>
         <div className="col-6 mx-auto d-flex justify-content-center">
             <img src={AuthLogo} height={'500px'} style={{objectFit: 'contain'}}/>

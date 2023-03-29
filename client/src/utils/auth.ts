@@ -16,7 +16,6 @@ const isUserLoggedIn = (): boolean => {
 }
 
 const storeToken = (token: string) => {
-    console.log(token)
     localStorage.setItem('token', token);
 }
 

@@ -1,8 +1,9 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { isUserLoggedIn, getToken } from "../utils/auth";
 import { useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import network from "../utils/network";
+import AppLoader from "../components/AppLoader";
 
 
 const Todos = (): JSX.Element => {
@@ -24,8 +25,14 @@ const Todos = (): JSX.Element => {
     const [status, setStatus] = useState<number>(0);
     const [priority, setPriority] = useState<number>(0);
     const [todoId, setTodoId] = useState<number|null>(null);
+    const [isCompleted, setIsCompleted] = useState<boolean>(false);
 
-    
+    const resetForm = () => {
+        setTitle('');
+        setDescription('');
+        setStatus(0);
+        setPriority(0);
+    }
 
     // submit form
     const submitForm = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -33,16 +40,30 @@ const Todos = (): JSX.Element => {
         setLoading(true);
         try {
             const body = { title, description, status, priority };
-            const response = isUpdate() ? await network.updateTask(`${todoId}`, body) : await network.addTask(body);
+            isUpdate() ? await network.updateTask(`${todoId}`, body) : await network.addTask(body);
             setError(null);
-            setTodos([...todos, response.data.data]);
+            resetForm();
         } catch (err: any) {
             setError(JSON.stringify(err.response.data));
         }
         setLoading(false);
+        setIsCompleted(!isCompleted);
     }
 
-    console.log(getToken())
+    // load todos
+    useEffect(() => {
+        const getTodos = async () => {
+            setLoading(true);
+            try {
+                const response = await network.getTasks();
+                setTodos(response.data.data);
+            } catch (err: any) {
+                setError(JSON.stringify(err.response.data));
+            }
+            setLoading(false);
+        }
+        getTodos();
+    }, [isCompleted]);
 
     return (
         <div className="row mx-5">
@@ -70,7 +91,24 @@ const Todos = (): JSX.Element => {
                         </tr>
                          :
 
-                        <></> 
+                        todos.map((todo, index) => {
+                            return (
+                                <tr key={index}>
+                                    <td>{index + 1}</td>
+                                    <td>{todo.title}</td>
+                                    <td>{todo.description}</td>
+                                    <td>{todo.status}</td>
+                                    <td>{todo.priority}</td>
+                                    <td>
+                                        <div>
+                                            <Link to={`/todos/edit/${todo.id}`} className="btn btn-primary btn-sm mx-1">Edit</Link>
+                                            <Link to={`/todos/delete/${todo.id}`} className="btn btn-danger btn-sm mx-1">Delete</Link>
+                                        </div>
+                                    </td>
+                                </tr>
+                            )
+                        })
+                        
                         }
                     </tbody>
                 </table>
@@ -116,8 +154,12 @@ const Todos = (): JSX.Element => {
                             <option value="2">HIGH</option>
                         </select>
                     </div>
-                    <button type="submit" className="btn btn-success">ADD</button>
+                    { loading ? <AppLoader/> : <button type="submit" className="btn btn-success">ADD</button>}
+                    
                 </form>
+                
+                { (error && !loading) && <div className="alert alert-danger mt-3">{error}</div> }
+
             </div>
         </div>
     )

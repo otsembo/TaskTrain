@@ -27,7 +27,7 @@ This section will guide you through setting up and running this repository on yo
     ```
     cd TaskTrain
     ```
-* To interact with the front-end part of the application, navigate to the `webapp` folder
+* To interact with the front-end part of the application, navigate to the `client` folder
     ```
     cd client
 * To run the front-end part first ensure that you run 

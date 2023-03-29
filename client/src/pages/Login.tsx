@@ -22,7 +22,7 @@ const Login = (): JSX.Element => {
             setError(null)
             navigate('/todos')
         } catch (err: any) {
-           setError(err.response.data);
+           setError(JSON.stringify(err.response.data));
         }
         setLoading(false)
     }

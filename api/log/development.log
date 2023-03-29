@@ -714,3 +714,61 @@ Processing by TodosController#index as */*
 Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.2ms | Allocations: 1633)
 
 
+Started POST "/todos" for 127.0.0.1 at 2023-03-29 05:09:51 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"Finish Code", "description"=>"Just finish your code bazuu", "status"=>"CREATED", "priority"=>"LOW", "todo"=>{"title"=>"Finish Code", "description"=>"Just finish your code bazuu", "status"=>"CREATED", "priority"=>"LOW"}}
+Filter chain halted as :verify_auth rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 378)
+
+
+Started POST "/todos" for 127.0.0.1 at 2023-03-29 05:10:05 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"Finish Code", "description"=>"Just finish your code bazuu", "status"=>"CREATED", "priority"=>"LOW", "todo"=>{"title"=>"Finish Code", "description"=>"Just finish your code bazuu", "status"=>"CREATED", "priority"=>"LOW"}}
+Completed 500 Internal Server Error in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 958)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/application_controller.rb:7:in `app_response'
+app/controllers/application_controller.rb:89:in `standard_error'
+Started POST "/todos" for 127.0.0.1 at 2023-03-29 05:10:52 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"Finish Code", "description"=>"Just finish your code bazuu", "status"=>"CREATED", "priority"=>"LOW", "todo"=>{"title"=>"Finish Code", "description"=>"Just finish your code bazuu", "status"=>"CREATED", "priority"=>"LOW"}}
+Completed 500 Internal Server Error in 1ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 819)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/application_controller.rb:7:in `app_response'
+app/controllers/application_controller.rb:90:in `standard_error'
+Started POST "/todos" for 127.0.0.1 at 2023-03-29 05:10:55 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"Finish Code", "description"=>"Just finish your code bazuu", "status"=>"CREATED", "priority"=>"LOW", "todo"=>{"title"=>"Finish Code", "description"=>"Just finish your code bazuu", "status"=>"CREATED", "priority"=>"LOW"}}
+Completed 500 Internal Server Error in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 657)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/application_controller.rb:7:in `app_response'
+app/controllers/application_controller.rb:90:in `standard_error'
+Started POST "/todos" for 127.0.0.1 at 2023-03-29 05:11:30 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"Finish Code", "description"=>"Just finish your code bazuu", "status"=>"CREATED", "priority"=>"LOW", "todo"=>{"title"=>"Finish Code", "description"=>"Just finish your code bazuu", "status"=>"CREATED", "priority"=>"LOW"}}
+Completed 500 Internal Server Error in 1ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 819)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/application_controller.rb:7:in `app_response'
+app/controllers/application_controller.rb:90:in `standard_error'
+Started POST "/todos" for 127.0.0.1 at 2023-03-29 05:14:30 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"Finish Code", "description"=>"Just finish your code bazuu", "status"=>"CREATED", "priority"=>"LOW", "todo"=>{"title"=>"Finish Code", "description"=>"Just finish your code bazuu", "status"=>"CREATED", "priority"=>"LOW"}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 288)
+
+

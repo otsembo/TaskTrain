@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { isUserLoggedIn } from "../utils/auth";
+import { isUserLoggedIn, getToken } from "../utils/auth";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import network from "../utils/network";
@@ -41,6 +41,8 @@ const Todos = (): JSX.Element => {
         }
         setLoading(false);
     }
+
+    console.log(getToken())
 
     return (
         <div className="row mx-5">

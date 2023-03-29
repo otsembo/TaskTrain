@@ -20,27 +20,19 @@ class ApplicationController < ActionController::API
             },
             exp: Time.now.to_i + (6 * 3600)
         }
-        begin
-            JWT.encode(payload, ENV['task_train_key'], 'HS256')
-        rescue JWT::EncodeError => e
-            app_response(message: 'failed', status: 400, data: { info: 'Something went wrong. Please try again' })
-        end
+        JWT.encode(payload, ENV['task_train_key'], 'HS256')
     end
 
     # unhash the token
     def decode(token)
-        begin
-            JWT.decode(token, ENV['task_train_key'], true, { algorithm: 'HS256' })
-        rescue JWT::DecodeError => e
-            app_response(message: 'failed', status: 401, data: { info: 'Your session has expired. Please login again to continue' }) 
-        end
+        JWT.decode(token, ENV['task_train_key'], true, { algorithm: 'HS256' })
     end
 
     # verify authorization headers
     def verify_auth
         auth_headers = request.headers['Authorization']
         if !auth_headers
-            app_response(message: 'failed', status: 401, data: { info: 'Your request is not authorized.' }) 
+            app_response(message: 'failed', status: 401, data: { info: 'Your request is not authorized.' })
         else
             token = auth_headers.split(' ')[1]
             save_user_id(token)
@@ -86,7 +78,6 @@ class ApplicationController < ActionController::API
     # rescue all common errors
     def standard_error(exception)
         app_response(message: 'failed', data: { info: exception.message }, status: :unprocessable_entity)
-        return
     end
 
 end
